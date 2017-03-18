@@ -1,0 +1,114 @@
+---
+- include_vars: vault.yml
+  no_log: true
+
+- name: Setup OS X defaults
+  osx_defaults:
+    domain: "{{ item.domain }}"
+    key: "{{ item.key }}"
+    type: "{{ item.type }}"
+    value: "{{ item.value }}"
+    state: present
+  notify:
+    - "{{ item.notify | default(omit) }}"
+  with_items:
+    - "{{ osx_defaults }}"
+
+- name: System settings
+  shell: "{{ item }}"
+  with_items:
+    - "{{ system_settings }}"
+  become: true
+  become_method: sudo
+
+# Login shell
+- name: Check login shell
+  shell: echo $SHELL
+  register: login_shell_result
+
+- name: Use zsh
+  shell: chsh -s /bin/zsh
+  when: login_shell_result.stdout != "/bin/zsh"
+
+- name: Create .zshrc
+  template:
+    src: templates/zshrc.j2
+    dest: ~/.zshrc
+    mode: 0644
+    backup: yes
+
+# # .bashrc
+# - template:
+#     src: templates/bashrc.j2
+#     dest: ~/.bashrc
+#     mode: 0644
+#     backup: yes
+
+# # .bash_profile
+# - template:
+#     src: templates/bash_profile.j2
+#     dest: ~/.bash_profile
+#     mode: 0644
+#     backup: yes
+
+# Directories
+- name: Make ~/wk
+  file:
+    path: ~/wk
+    state: directory
+    mode: 0755
+
+- name: Make ~/.ssh
+  file:
+    path: ~/.ssh
+    state: directory
+    mode: 0700
+
+# ssh
+- name: Make private key for efsol
+  copy:
+    content: "{{ private_key_for_efsol }}"
+    dest: ~/.ssh/id_dsa.efsol
+    mode: 0600
+    backup: yes
+
+- name: Make public key for efsol
+  copy:
+    content: "{{ public_key_for_efsol }}"
+    dest: ~/.ssh/id_dsa.efsol.pub
+    mode: 0644
+    backup: yes
+
+- name: Make private key for Eiichi Shimotori
+  copy:
+    content: "{{ private_key_for_eiichi_shimotori }}"
+    dest: ~/.ssh/id_rsa_eiichi_shimotori
+    mode: 0600
+    backup: yes
+
+- name: Make public key for Eiichi Shimotori
+  copy:
+    content: "{{ public_key_for_eiichi_shimotori }}"
+    dest: ~/.ssh/id_rsa_eiichi_shimotori.pub
+    mode: 0644
+    backup: yes
+
+- name: Create SSH config
+  template:
+    src: templates/ssh_config.j2
+    dest: ~/.ssh/config
+    mode: 0700
+    backup: yes
+
+# iTerm2
+- name: Check if iTerm2 config is differ
+  shell: |
+    diff <(plutil -convert binary1 -o - files/Library/Preferences/com.googlecode.iterm2.plist | md5 -q) <(md5 -q ~/Library/Preferences/com.googlecode.iterm2.plist)
+  args:
+    executable: /bin/bash
+    chdir: roles/mac
+  register: diff_result
+  failed_when: false
+  changed_when: diff_result.rc != 0
+  notify:
+    - Restore iTerm2 configuration

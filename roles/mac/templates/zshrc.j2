@@ -1,0 +1,47 @@
+# .zshrc
+
+# Setup colors
+autoload -Uz colors
+colors
+
+#===== Prompt =====
+# (3 lines)
+PROMPT="%{${fg[green]}%}[%D %* %n@%m %? %~]
+
+%# %{${reset_color}%}"
+
+#===== History =====
+HISTSIZE=1000000
+SAVEHIST=1000000
+
+# 同じコマンドをヒストリに残さない
+setopt hist_ignore_all_dups
+
+# スペースから始まるコマンド行はヒストリに残さない
+setopt hist_ignore_space
+
+# ヒストリに保存するときに余分なスペースを削除する
+setopt hist_reduce_blanks
+
+# 矢印キーで履歴検索
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up key
+bindkey "^[[B" down-line-or-beginning-search # Down key
+
+#===== Complement =====
+autoload -Uz compinit
+compinit
+
+#===== Aliases =====
+alias ll="ls -lG"
+alias lla="ls -laG"
+alias psg="ps aux | grep"
+
+#===== anyenv =====
+if [ -e $HOME/.anyenv ]; then
+  export PATH="$HOME/.anyenv/bin:$PATH"
+  eval "$(anyenv init -)"
+fi

@@ -1,0 +1,16 @@
+---
+homebrew_packages:
+  - { name: git }
+  - { name: wget }
+  - { name: homebrew/versions/mongodb30 }
+  - { name: mysql }
+
+homebrew_taps:
+  - { tap: homebrew/versions }
+  - { tap: caskroom/cask }
+  - { tap: caskroom/versions }
+
+homebrew_cask_packages: []
+#   - { name: google-chrome }
+#   - { name: google-japanese-ime }
+#   - { name: iterm2 }

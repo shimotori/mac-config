@@ -1,0 +1,14 @@
+Host site1 sc2sv4 sc2ap2
+  Port 22022
+  User efsol
+Host stg-* prd-*
+  Port 22022
+  User efsol
+  ProxyCommand ssh -p 22022 -l efsol mng2.gn-stg.net -W %h:%p
+Host sc2db*
+  Port 22022
+  User efsol
+  ProxyCommand ssh -p 22022 -l efsol sc2sv4 -W %h:%p
+Host *
+  Port 22
+  IdentityFile ~/.ssh/id_rsa_eiichi_shimotori

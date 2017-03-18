@@ -1,0 +1,33 @@
+---
+- name: Install homebrew
+  shell: |
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  args:
+    creates: /usr/local/bin/brew
+
+- name: Update homebrew
+  homebrew:
+    update_homebrew: yes
+
+- name: Add homebrew taps
+  homebrew_tap:
+    tap: "{{ item.tap }}"
+    state: present
+  with_items:
+    - "{{ homebrew_taps }}"
+
+- name: Install homebrew cask packages
+  homebrew_cask:
+    name: "{{ item.name }}"
+    state: present
+    install_options: 'appdir=/Applications'
+  with_items:
+    - "{{ homebrew_cask_packages }}"
+
+- name: Install homebrew packages
+  homebrew:
+    name: "{{ item.name }}"
+    install_options: "{{ item.install_options | default(omit) }}"
+    state: "{{ item.state | default('latest') }}"
+  with_items:
+    - "{{ homebrew_packages }}"

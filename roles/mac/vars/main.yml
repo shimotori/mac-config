@@ -1,0 +1,12 @@
+---
+# Encrypt: ansible-vault encrypt {file name}
+# Decrypt: ansible-vault decrypt {file name}
+# View: ansible-vault view {file name}
+# Edit: ansible-vault edit {file name}
+# Execute: ansible-playbook {playbook file name} --ask-vault-pass
+
+private_key_for_efsol: "{{ vault_private_key_for_efsol }}"
+public_key_for_efsol: ssh-dss AAAAB3NzaC1kc3MAAACBAPrDvsW9GKe/CzT2UXzPLsVCBcOpEC+tPj1NrfUC9sh7b8mpAcFzekptWQ+6trK/PaipbQI+jinLZWUebdNkws7CejTJEUi7YlEqyTmAwt14+kPnsDuJYwehTo1tqbPVztmR93eypdQRtHODHKavhLu74grQoCBIXczfHfVyGDL3AAAAFQDrv139khIo3OzMMSwjCZ6UlLKH1QAAAIEA6YZHBfTOPLXnPfJWVKmWXTb8Y0MxK9pDZMB9pc+zBce/iMtfpR7ZIqfA7VOD3OHEt76NVNuY02XhIp5VCOVo+UCKu3osrZBHLk8bo/lBtWt5ERY0vzSmQAsaVOhhBtRcj2WBIaluhCzw2Xcj4ofNjgy2VFoe/958viEn/n1rKAMAAACBANsglDK3jNn5Kvn1nNTEwb6qmN4fD97VOClUSmV1hc6tyzGZ5XKtgAWvOnXlHG7qVzFY9DUY7SNchFha67CQqOys+xMPWfGyMnhOQ4BIl2H0IhPvtlTZ9OTMalb0DM36ZMB0vreIIApbZq4kTTtC0eJol20C6ZJsm5ZqsNXAzYl3 efsol@localhost.localdomain
+
+private_key_for_eiichi_shimotori: "{{ vault_private_key_for_eiichi_shimotori }}"
+public_key_for_eiichi_shimotori: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMxV4gKJM3heuJDwukS/1Mwn1/TsVAeTtjlsg+/RyxYcKTmqRIE95crrhce67ZK+jeJZ1QZF3D97y1eH8blfz7iGBYMhjKezPJ5Pms3RCZlkwe6nJCAw3F/q5F3E+LP1MT4vw1e0Hbp4J8Ynr54OzLqqK/jh1hfDxe5psP1NoLghtMpkRxR974Qmcvb9UV9pZ+z97JQnBJgV9FdtNCj0oV4EBKOPebQqWNsb6dMatnaYb2E4Mn2UdN4NRtybW7UhVEakV1k428YYMPU7HldudF1V3XVq4N+4k6S6rCiFBU+By98vMgjkWpH5HaUJN5+sW2E2f0fwa+WdSNLVWC1hhX shimotori@mac3.local

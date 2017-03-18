@@ -1,0 +1,14 @@
+# .bash_profile
+
+if [ -f ~/.bashrc ]; then
+  . ~/.bashrc
+fi
+
+alias ll="ls -lG"
+alias lla="ls -laG"
+alias psg="ps aux | grep"
+
+PS1="\[\033[1;32m\][\$(date '+%Y-%m-%d') \t \u@\h \W]\n\n\$\[\033[0m\] "
+
+# History: Erase duplicated entries
+export HISTCONTROL=ignoreboth:erasedups

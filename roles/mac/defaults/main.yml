@@ -1,0 +1,56 @@
+---
+osx_defaults:
+  # Assign Secondary Click to Tap Right Bottom Corner
+  - domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadCornerSecondaryClick
+    type: int
+    value: 2
+
+  # Turn on Three Finger Drag
+  - domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadThreeFingerDrag
+    type: bool
+    value: true
+
+  - domain: com.apple.dock
+    key: autohide
+    type: bool
+    value: true
+    notify: Restart Dock
+    changed_when: True
+
+  - domain: com.apple.dock
+    key: mineffecte
+    type: string
+    value: scale
+    notify: Restart Dock
+
+  # Launchpad columns
+  - domain: com.apple.dock
+    key: springboard-columns
+    type: int
+    value: 10
+    notify: Restart Dock
+
+  # Launchpad rows
+  - domain: com.apple.dock
+    key: springboard-rows
+    type: int
+    value: 7
+    notify: Restart Dock
+
+  - domain: com.apple.finder
+    key: AppleShowAllFiles
+    type: boolean
+    value: true
+    notify: Restart Finder
+
+  - domain: NSGlobalDomain
+    key: com.apple.trackpad.scaling
+    type: float
+    value: 2.5
+
+
+system_settings:
+  # Battery: Remove power to memory on sleep
+  - pmset -b hibernatemode 25

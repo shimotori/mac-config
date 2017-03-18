@@ -1,0 +1,19 @@
+---
+tool_repos:
+  # anyenv
+  - repo: https://github.com/riywo/anyenv
+    dest: ~/.anyenv
+
+envs:
+  - rbenv
+  - pyenv
+  - phpenv
+  - ndenv
+  - jenv
+
+global_gems:
+  - bundler
+
+bitbucket_repos:
+  - corp
+  - goalnavi

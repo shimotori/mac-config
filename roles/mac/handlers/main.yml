@@ -1,0 +1,14 @@
+---
+- name: Restart Dock
+  shell: |
+    killall Dock
+
+- name: Restart Finder
+  shell: |
+    killall Finder
+
+- name: Restore iTerm2 configuration
+  shell: |
+    plutil -convert binary1 -o ~/Library/Preferences/com.googlecode.iterm2.plist files/Library/Preferences/com.googlecode.iterm2.plist
+  args:
+    chdir: roles/mac

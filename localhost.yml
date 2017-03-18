@@ -1,0 +1,9 @@
+---
+- name: Configure Mac
+  hosts: localhost
+  connection: local
+  roles:
+    - { role: debug,    tags: [ debug ] }
+    - { role: homebrew, tags: [ homebrew ] }
+    - { role: mac,      tags: [ mac ] }
+    - { role: develop }

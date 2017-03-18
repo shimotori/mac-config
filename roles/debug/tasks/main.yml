@@ -1,0 +1,12 @@
+---
+- debug:
+    msg: "inventory_hostname = {{ inventory_hostname }}"
+
+- debug:
+    msg: "ansible_host = {{ ansible_host }}"
+
+- debug:
+    msg: "ansible_user = {{ ansible_user }}"
+
+- debug:
+    msg: "lookup('env','USER') = {{ lookup('env','USER') }}"
