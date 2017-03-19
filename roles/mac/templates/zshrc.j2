@@ -10,6 +10,10 @@ PROMPT="%{${fg[green]}%}[%D %* %n@%m %? %~]
 
 %# %{${reset_color}%}"
 
+#===== Complement =====
+autoload -Uz compinit
+compinit
+
 #===== History =====
 HISTSIZE=1000000
 SAVEHIST=1000000
@@ -24,16 +28,13 @@ setopt hist_ignore_space
 setopt hist_reduce_blanks
 
 # 矢印キーで履歴検索
+# ※compinitの後に設定しないと無効になる
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up key
 bindkey "^[[B" down-line-or-beginning-search # Down key
-
-#===== Complement =====
-autoload -Uz compinit
-compinit
 
 #===== Aliases =====
 alias ll="ls -lG"
