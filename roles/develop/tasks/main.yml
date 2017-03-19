@@ -62,8 +62,9 @@
 # *** Commented out because fails
 #- name: Get Bitbucket repositories
 #  git:
-#    repo: "git@bitbucket.org:efsol/{{ item }}.git"
-#    dest: "~/dev/{{ item }}"
+#    repo: "git@bitbucket.org:efsol/{{ item.name }}.git"
+#    dest: "~/dev/{{ item.name }}"
+#    version: "{{ item.version | default(omit) }}"
 #    depth: 100
 #    accept_hostkey: yes
 #  with_items:

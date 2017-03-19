@@ -15,5 +15,6 @@ global_gems:
   - bundler
 
 bitbucket_repos:
-  - corp
-  - goalnavi
+  - name: corp
+  - name: goalnavi
+    version: develop
