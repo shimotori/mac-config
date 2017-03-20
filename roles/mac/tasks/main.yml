@@ -9,8 +9,7 @@
     type: "{{ item.type }}"
     value: "{{ item.value }}"
     state: present
-  notify:
-    - "{{ item.notify | default(omit) }}"
+  notify: "{{ item.notify | default(omit) }}"
   with_items:
     - "{{ osx_defaults }}"
 
