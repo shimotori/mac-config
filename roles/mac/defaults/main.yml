@@ -15,9 +15,8 @@ osx_defaults:
   - domain: com.apple.dock
     key: autohide
     type: bool
-    value: true
+    value: false
     notify: Restart Dock
-    changed_when: True
 
   - domain: com.apple.dock
     key: mineffecte
