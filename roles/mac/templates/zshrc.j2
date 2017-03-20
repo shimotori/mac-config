@@ -5,10 +5,22 @@ autoload -Uz colors
 colors
 
 #===== Prompt =====
-# (3 lines)
-PROMPT="%{${fg[green]}%}[%D %* %n@%m %? %~]
+# Ref. https://coderwall.com/p/rhrf8a/colorize-zsh-prompt-based-on-last-return-code
+PROMPT="%F{green}--- %D %*%f %(?.%F{green}.%F{red})%?%f
+%F{cyan}[%n@%m %~]%f
+%# "
 
-%# %{${reset_color}%}"
+# リポジトリ情報を表示
+# Ref. http://tkengo.github.io/blog/2013/05/12/zsh-vcs-info/
+autoload -Uz vcs_info
+setopt prompt_subst
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
+zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
+zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+precmd () { vcs_info }
+RPROMPT='${vcs_info_msg_0_}'
 
 #===== Complement =====
 autoload -Uz compinit
@@ -33,8 +45,8 @@ autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
-bindkey "^[[A" up-line-or-beginning-search # Up key
-bindkey "^[[B" down-line-or-beginning-search # Down key
+bindkey "^[[A" up-line-or-beginning-search  # Up key
+bindkey "^[[B" down-line-or-beginning-search  # Down key
 
 #===== Aliases =====
 alias ll="ls -lG"
