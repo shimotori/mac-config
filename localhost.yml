@@ -6,4 +6,4 @@
     - { role: debug,    tags: [ debug ] }
     - { role: homebrew, tags: [ homebrew ] }
     - { role: mac,      tags: [ mac ] }
-    - { role: develop }
+    - { role: develop,  tags: [ develop ] }
