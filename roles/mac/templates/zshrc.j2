@@ -1,6 +1,6 @@
 # .zshrc
 
-# Setup colors
+#===== Setup colors =====
 autoload -Uz colors
 colors
 
@@ -69,4 +69,9 @@ alias tenki="open http://www.tenki.jp/forecast/3/16/4410/13116-1hour.html"
 if [ -e $HOME/.anyenv ]; then
   export PATH="$HOME/.anyenv/bin:$PATH"
   eval "$(anyenv init -)"
+fi
+
+#===== MongoDB =====
+if [ -e /usr/local/opt/mongodb@3.0/bin ]; then
+  export PATH="/usr/local/opt/mongodb@3.0/bin:$PATH"
 fi
