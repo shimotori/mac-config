@@ -44,6 +44,13 @@ osx_defaults:
     value: true
     notify: Restart Finder
 
+  # Screen capture location
+  - domain: com.apple.screencapture
+    key: location
+    type: string
+    value: ~/Pictures
+    notify: Restart SystemUIServer
+
   - domain: NSGlobalDomain
     key: com.apple.trackpad.scaling
     type: float

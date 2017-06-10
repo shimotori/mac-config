@@ -7,6 +7,10 @@
   shell: |
     killall Finder
 
+- name: Restart SystemUIServer
+  shell: |
+    killall SystemUIServer
+
 - name: Restore iTerm2 configuration
   shell: |
     plutil -convert binary1 -o ~/Library/Preferences/com.googlecode.iterm2.plist files/Library/Preferences/com.googlecode.iterm2.plist
