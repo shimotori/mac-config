@@ -9,6 +9,12 @@ Host sc2db*
   Port 22022
   User efsol
   ProxyCommand ssh -p 22022 -l efsol sc2sv4 -W %h:%p
+Host goaltech.xsrv.jp gtxsrv
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_rsa_eiichi_shimotori_goaltech_jp
+  Port 10022
+  User goaltech
 Host *
   Port 22
   IdentityFile ~/.ssh/id_rsa_eiichi_shimotori

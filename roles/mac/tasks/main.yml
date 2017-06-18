@@ -92,6 +92,20 @@
     mode: 0644
     backup: yes
 
+- name: Make private key for Eiichi Shimotori in GoalTech
+  copy:
+    content: "{{ private_key_for_eiichi_shimotori_goaltech_jp }}"
+    dest: ~/.ssh/id_rsa_eiichi_shimotori_goaltech_jp
+    mode: 0600
+    backup: yes
+
+- name: Make public key for Eiichi Shimotori in GoalTech
+  copy:
+    content: "{{ public_key_for_eiichi_shimotori_goaltech_jp }}"
+    dest: ~/.ssh/id_rsa_eiichi_shimotori_goaltech_jp.pub
+    mode: 0644
+    backup: yes
+
 - name: Create SSH config
   template:
     src: templates/ssh_config.j2
