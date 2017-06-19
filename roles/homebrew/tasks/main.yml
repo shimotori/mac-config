@@ -16,14 +16,6 @@
   with_items:
     - "{{ homebrew_taps }}"
 
-- name: Install homebrew cask packages
-  homebrew_cask:
-    name: "{{ item.name }}"
-    state: present
-    install_options: 'appdir=/Applications'
-  with_items:
-    - "{{ homebrew_cask_packages }}"
-
 - name: Install homebrew packages
   homebrew:
     name: "{{ item.name }}"
@@ -31,3 +23,11 @@
     state: "{{ item.state | default('latest') }}"
   with_items:
     - "{{ homebrew_packages }}"
+
+- name: Install homebrew cask packages
+  homebrew_cask:
+    name: "{{ item.name }}"
+    state: present
+    install_options: 'appdir=/Applications'
+  with_items:
+    - "{{ homebrew_cask_packages }}"

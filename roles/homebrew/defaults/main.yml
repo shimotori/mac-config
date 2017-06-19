@@ -1,14 +1,18 @@
 ---
+homebrew_taps:
+  - { tap: homebrew/versions }
+  - { tap: caskroom/cask }
+  - { tap: caskroom/versions }
+  - { tap: pivotal/tap }
+
 homebrew_packages:
   - { name: git }
   - { name: wget }
   - { name: homebrew/versions/mongodb30 }
   - { name: mysql }
-
-homebrew_taps:
-  - { tap: homebrew/versions }
-  - { tap: caskroom/cask }
-  - { tap: caskroom/versions }
+  # Pivotal tap
+  - { name: springboot}
+    # command line completion is stored in /usr/local/etc/bash_completion.d/
 
 homebrew_cask_packages: []
 #   - { name: google-chrome }

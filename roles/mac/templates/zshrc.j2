@@ -26,6 +26,9 @@ RPROMPT='${vcs_info_msg_0_}'
 autoload -Uz compinit
 compinit
 
+autoload bashcompinit
+bashcompinit
+
 #===== History =====
 HISTFILE=${HOME}/.zsh_history
 HISTSIZE=1000000
@@ -75,3 +78,10 @@ fi
 if [ -e /usr/local/opt/mongodb@3.0/bin ]; then
   export PATH="/usr/local/opt/mongodb@3.0/bin:$PATH"
 fi
+
+#===== Spring Boot CLI =====
+# *** bash completion is not work on zsh
+#spring_completion=/usr/local/Cellar/springboot/1.5.4.RELEASE/etc/bash_completion.d/spring
+#if [ -e $spring_completion ]; then
+#  source $spring_completion
+#fi
