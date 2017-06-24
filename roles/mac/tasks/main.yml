@@ -78,17 +78,17 @@
     mode: 0644
     backup: yes
 
-- name: Make private key for Eiichi Shimotori
+- name: Make private key for GoalTech IT Service
   copy:
-    content: "{{ private_key_for_eiichi_shimotori }}"
-    dest: ~/.ssh/id_rsa_eiichi_shimotori
+    content: "{{ private_key_for_itservice_goaltech_jp }}"
+    dest: ~/.ssh/id_rsa_itservice_goaltech_jp
     mode: 0600
     backup: yes
 
-- name: Make public key for Eiichi Shimotori
+- name: Make public key for GoalTech IT Service
   copy:
-    content: "{{ public_key_for_eiichi_shimotori }}"
-    dest: ~/.ssh/id_rsa_eiichi_shimotori.pub
+    content: "{{ public_key_for_itservice_goaltech_jp }}"
+    dest: ~/.ssh/id_rsa_itservice_goaltech_jp.pub
     mode: 0644
     backup: yes
 
@@ -103,6 +103,20 @@
   copy:
     content: "{{ public_key_for_eiichi_shimotori_goaltech_jp }}"
     dest: ~/.ssh/id_rsa_eiichi_shimotori_goaltech_jp.pub
+    mode: 0644
+    backup: yes
+
+- name: Make private key for Eiichi Shimotori
+  copy:
+    content: "{{ private_key_for_eiichi_shimotori }}"
+    dest: ~/.ssh/id_rsa_eiichi_shimotori
+    mode: 0600
+    backup: yes
+
+- name: Make public key for Eiichi Shimotori
+  copy:
+    content: "{{ public_key_for_eiichi_shimotori }}"
+    dest: ~/.ssh/id_rsa_eiichi_shimotori.pub
     mode: 0644
     backup: yes
 
