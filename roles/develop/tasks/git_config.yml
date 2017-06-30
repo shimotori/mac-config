@@ -1,0 +1,10 @@
+---
+- git_config:
+    name: alias.co
+    scope: global
+    value: commit
+
+- git_config:
+    name: alias.st
+    scope: global
+    value: status

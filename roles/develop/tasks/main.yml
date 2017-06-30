@@ -1,4 +1,6 @@
 ---
+- include: git_config.yml
+
 # System
 - name: Update /etc/hosts
   template:
