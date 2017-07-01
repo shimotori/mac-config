@@ -59,6 +59,7 @@ bindkey "^[[B" down-line-or-beginning-search  # Down key
 alias ll="ls -lG"
 alias lla="ls -laG"
 alias psg="ps aux | grep"
+alias gn_start="cd ~/dev/goalnavi && bin/rails server thin -b 127.0.0.1 -p 3000 -e development"
 alias gn_actions="(pushd ~/dev/goalnavi && bin/rake 'goalnavi:actions[shimotori,]' && popd)"
 alias gn_taskgen="(cd ~/dev/goalnavi && bin/rake goalnavi:taskgen && bin/rake jobs:work)"
 alias backup="sh ~/dev/tools_ruby/backup/backup.sh"
