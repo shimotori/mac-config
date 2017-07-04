@@ -5,12 +5,7 @@ autoload -Uz colors
 colors
 
 #===== Prompt =====
-# Ref. https://coderwall.com/p/rhrf8a/colorize-zsh-prompt-based-on-last-return-code
-PROMPT="%F{green}-- %D %*%f %(?.%F{green}.%F{red})%?%f
-%F{cyan}%n@%m %~%f
-%# "
-
-# リポジトリ情報を表示
+# リポジトリ情報を設定
 # Ref. http://tkengo.github.io/blog/2013/05/12/zsh-vcs-info/
 autoload -Uz vcs_info
 setopt prompt_subst
@@ -19,8 +14,16 @@ zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
 zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
 zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
-precmd () { vcs_info }
-RPROMPT='${vcs_info_msg_0_}'
+precmd() { vcs_info }
+
+# プロンプト設定
+#   -- YY-MM-DD hh:mm:ss return_code
+#   user@host path vcs_info
+#   prompt
+# Ref. https://coderwall.com/p/rhrf8a/colorize-zsh-prompt-based-on-last-return-code
+PROMPT="%F{green}-- %D %*%f %(?.%F{green}.%F{red})%?%f
+%F{cyan}%n@%m %~%f "'${vcs_info_msg_0_}'$'\n'
+PROMPT=$PROMPT"%# "
 
 #===== Complement =====
 autoload -Uz compinit
