@@ -20,10 +20,14 @@ precmd() { vcs_info }
 #   -- YY-MM-DD hh:mm:ss return_code
 #   user@host path vcs_info
 #   prompt
-# Ref. https://coderwall.com/p/rhrf8a/colorize-zsh-prompt-based-on-last-return-code
+# Ref.
+#   http://www.nparikh.org/unix/prompt.php#zsh
+#   https://bbs.archlinux.org/viewtopic.php?id=210311
+#   https://coderwall.com/p/rhrf8a/colorize-zsh-prompt-based-on-last-return-code
+unset PROMPT_BANG
 PROMPT="%F{green}-- %D %*%f %(?.%F{green}.%F{red})%?%f
 %F{cyan}%n@%m %~%f "'${vcs_info_msg_0_}'$'\n'
-PROMPT=$PROMPT"%# "
+PROMPT=$PROMPT$'%(!.#.$)'' '
 
 #===== Complement =====
 autoload -Uz compinit
