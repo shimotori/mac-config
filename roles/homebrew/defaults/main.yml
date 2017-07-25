@@ -12,6 +12,7 @@ homebrew_packages:
   - { name: homebrew/versions/mongodb30 }
   - { name: mysql }
   - { name: pwgen }
+  - { name: tree }
   # Pivotal tap
   - { name: springboot}
     # command line completion is stored in /usr/local/etc/bash_completion.d/
