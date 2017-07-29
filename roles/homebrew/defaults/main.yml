@@ -13,6 +13,7 @@ homebrew_packages:
   - { name: mysql }
   - { name: pwgen }
   - { name: tree }
+  - { name: plantuml }
   # Pivotal tap
   - { name: springboot}
     # command line completion is stored in /usr/local/etc/bash_completion.d/
