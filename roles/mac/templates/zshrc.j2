@@ -88,6 +88,11 @@ if [ -e $HOME/.anyenv ]; then
   eval "$(anyenv init -)"
 fi
 
+#===== Android SDK =====
+if [ -e $HOME/Library/Android/sdk/platform-tools ]; then
+  export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
+fi
+
 #===== MongoDB =====
 if [ -e /usr/local/opt/mongodb@3.0/bin ]; then
   export PATH="/usr/local/opt/mongodb@3.0/bin:$PATH"
