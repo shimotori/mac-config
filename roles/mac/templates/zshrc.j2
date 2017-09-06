@@ -60,7 +60,9 @@ autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search  # Up key
+bindkey "^p" up-line-or-beginning-search  # Ctrl+p
 bindkey "^[[B" down-line-or-beginning-search  # Down key
+bindkey "^n" down-line-or-beginning-search  # Ctrl+n
 
 #===== Aliases =====
 alias ll="ls -lG"
