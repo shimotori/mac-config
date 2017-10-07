@@ -91,6 +91,9 @@ if [ -e $HOME/.anyenv ]; then
 fi
 
 #===== Android SDK =====
+if [ -e $HOME/Library/Android/sdk ]; then
+  export ANDROID_HOME=$HOME/Library/Android/sdk
+fi
 if [ -e $HOME/Library/Android/sdk/platform-tools ]; then
   export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
 fi
