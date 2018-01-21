@@ -90,6 +90,11 @@ if [ -e $HOME/.anyenv ]; then
   eval "$(anyenv init -)"
 fi
 
+#===== pyenv-virtualenv =====
+if [ -e $HOME/.anyenv/envs/pyenv/plugins/pyenv-virtualenv ]; then
+  eval "$(pyenv virtualenv-init -)"
+fi
+
 #===== Android SDK =====
 if [ -e $HOME/Library/Android/sdk ]; then
   export ANDROID_HOME=$HOME/Library/Android/sdk
