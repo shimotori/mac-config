@@ -61,6 +61,14 @@
 - name: Restart MongoDB
   shell: "brew services restart homebrew/versions/mongodb30"
 
+# SQLite
+-name: Create .sqliterc
+  template:
+    src: templates/sqliterc.j2
+    dest: ~/.sqliterc
+    mode: 0644
+    backup: yes
+
 # *** Commented out because fails
 #- name: Get Bitbucket repositories
 #  git:
